@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.bg-img {
+    /* The image used */
+    background-image: url("/public/Images/park_img.jpg");
+  
+    /* Control the height of the image */
+    max-height: 60%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+#sidebar{
+    position: relative;
+    width: 200px;
+    height: 100%;
+    background: #151719;
+    left: 0px;
+    transition: all 500ms linear;
+}
+#sidebar.active{
+    left: -200px;
+}
+#sidebar ul li{
+    color: rgba(230, 230, 230, 0.9);
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+#sidebar .toggle-btn {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    cursor: pointer;
+}
+#sidebar .toggle-btn span{
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #ffff;
+    margin: 5px 0px;
+}

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Error</title>
+
+        <style>
+            body{
+                background-color:azure;
+                position: relative; 
+            }
+            img{
+                position: absolute;
+                width: 50%;
+                height: auto;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            h2{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="/public/Images/errorr.png" alt="An error has occured!">
+        <h2> <%- error %></h2>
+    </body>
+</html>

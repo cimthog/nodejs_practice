@@ -1,8 +1,19 @@
 <html>
     <head>
-
+        <link rel="stylesheet" type="text/css" href="/public/css/contact.css">
     </head>
     <body>
             <%- include header %>
+            <form action="" class="container" method="POST">
+                    <h1>Send a Mail Right Away!</h1>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                
+                    <label for="desc"><b>Description</b></label>
+                    <input type="text" placeholder="What do you want us to know?" class="desc" required>
+                
+                    <button type="submit" class="btn">Send</button>
+                  </form>
+            <script src="/public/js/contact.js"></script>
     </body>
 </html>

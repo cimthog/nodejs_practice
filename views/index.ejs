@@ -1,8 +1,58 @@
 <html>
     <head>
-
+        <title>Nature Park</title>
+        <link rel="stylesheet" type="text/css" href="/public/css/index.css">
     </head>
     <body>
-            <%- include header %>
+            <%- include header %>   
+            
+        <div class="bg-img" id="main-container">     
+                <h1 id="wel_txt" class="welcome"><%=name %></h1>
+
+                 <form action="/api/authenticate" id="log_container" class="container" method="post">
+
+                    <h1>Login</h1>
+
+                    <h4><%- messages() %></h4>
+
+                  <label for="username"><b>Username</b></label>
+                  <input type="text" name="username" placeholder="Enter Username"  required>
+              
+                  <label for="password"><b>Password</b></label>
+                  <input type="password" name="password" placeholder="Enter Password"  required>
+              
+                  <button type="submit" class="btn">Login</button>
+                </form>
+                <h5 id="reg_txt">Don't have an account?<em> <button id="reg_btn" onclick="openForm()">Register Here</button></a> </h5>
+
+                <div id="reg_box">
+                        <form action="/api/register" class="reg_container" method="post">
+
+                            <h1>Register</h1>
+        
+                          <label for="username"><b>Username</b></label>
+                          <input type="text" name="username" placeholder="Enter Username"  required>
+        
+                          <label for="email"><b>Email</b></label>
+                          <input type="text" name="email" placeholder="Enter Email"  required>
+                      
+                          <label for="password"><b>Password</b></label>
+                          <input type="password" name="password" placeholder="Enter Password"  required>
+        
+                          <label for="address"><b>Home Address</b></label>
+                          <input type="text" name="address" placeholder="Enter Home Address"  required>
+        
+                          <label for="date"><b>Date of Birth</b></label>
+                          <input type="date" name="date" placeholder="DOB"  required>
+                      
+                          <button type="submit" class="btn">Register</button>
+                          
+                        </form>
+                       
+                </div>
+                
+               
+        </div>
+        <script src="/public/js/index.js"></script>
     </body>
 </html>
