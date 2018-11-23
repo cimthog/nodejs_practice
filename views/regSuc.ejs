@@ -36,6 +36,9 @@
         </style>
     </head>
     <body>
+            <% if (success_msg ) { %>
+                <p id="flash_text"><%= success_msg %></p>
+                <% } %>
         <img src="/public/Images/reg_suc_img.jpg" alt="Registration Successful!">
         <a href="/index">Login Now</a>
     </body>

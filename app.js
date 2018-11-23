@@ -11,23 +11,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //express-session middleware
-app.use(session({ cookie: { secure:true }, 
+app.use(session({ cookie: { maxAge:6000 }, 
     secret: 'fest',
     resave: false, 
     saveUninitialized: false}));
 
 //express-message middleware
-app.use(require('connect-flash')());
-app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
-  next();
-});
+app.use(flash());
+app.use((req,res,next)=>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+})
 
 //passport config
 require('./helpers/passport_auth')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+
 
 
 
@@ -36,6 +39,7 @@ const index = require('./routes/index')
 const home = require('./routes/home')
 const api = require('./routes/api')
 const about = require('./routes/about')
+const reg = require('./routes/regSuc')
 const contact = require('./routes/contact')
 
 app.set('view engine','ejs');
@@ -49,6 +53,7 @@ app.use('/',home)
 app.use('/api',api)
 app.use('/',about)
 app.use('/',contact) 
+app.use('/',reg) 
 
 // global error handler
 app.use(errorHandler);

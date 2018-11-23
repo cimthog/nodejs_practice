@@ -19,16 +19,18 @@ router.post('/authenticate',function(req,res,next){
     {
         successRedirect: '/home',
         failureRedirect: '/index',
-        failureFlash: true  
+        failureFlash: true
     })(req,res,next) ;   
 });
 
 
 function register(req, res, next) {
     user.create(req.body)
-        .then(() => 
-        res.render('regSuc')
-        )
+        .then(() =>{
+            
+            req.flash('success_msg',"registration successful,please login");
+            res.redirect('/index');
+        })
         .catch(err => next(err));
 }
 

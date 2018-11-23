@@ -7,13 +7,15 @@
             <%- include header %>   
             
         <div class="bg-img" id="main-container">     
-                <h1 id="wel_txt" class="welcome"><%=name %></h1>
+                <h1 id="wel_txt" class="welcome"></h1>
 
                  <form action="/api/authenticate" id="log_container" class="container" method="post">
 
-                    <h1>Login</h1>
+                    <% if (success_msg.length > 0 || error_msg > 0 ) { %>
+                        <p id="flash_text"><%= success_msg || error_msg %></p>
+                        <% } %>
 
-                    <h4><%- messages() %></h4>
+                    <h1>Login</h1>
 
                   <label for="username"><b>Username</b></label>
                   <input type="text" name="username" placeholder="Enter Username"  required>
@@ -28,8 +30,7 @@
                 <div id="reg_box">
                         <form action="/api/register" class="reg_container" method="post">
 
-                            <h1>Register</h1>
-        
+                     
                           <label for="username"><b>Username</b></label>
                           <input type="text" name="username" placeholder="Enter Username"  required>
         
